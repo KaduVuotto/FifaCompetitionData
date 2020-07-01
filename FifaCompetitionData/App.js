@@ -1,12 +1,21 @@
-import React, { Component } from 'react';
-import { Text, View } from 'react-native';
+import React from 'react';
+import Home from './src/view/home/home';
+import {createAppContainer} from 'react-navigation'; 
+import {createStackNavigator} from 'react-navigation-stack';
 
-export default class HelloWorldApp extends Component {
-  render() {
-    return (
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <Text>Hello, world!</Text>
-      </View>
-    );
-  }
-}
+const navigator = createStackNavigator({
+  Home: { 
+    header: null,
+    screen: Home 
+  },
+})
+
+const AppContainer = createAppContainer(navigator)
+
+const App = () => {
+  return (
+    <AppContainer />
+  )
+};
+
+export default App;
