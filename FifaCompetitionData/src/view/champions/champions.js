@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Text, View, Icon } from 'native-base';
 import { TouchableHighlight, KeyboardAvoidingView, ScrollView } from 'react-native';
-import InfoFooter from '../../components/info-footer/info-footer';
+import InfoHeader from '../../components/info-header/info-header';
 
 class Champions extends React.Component {
   state = {
@@ -15,8 +15,25 @@ class Champions extends React.Component {
   renderContent() {
     if (this.state.dashboard) {
       return (
-        <View style={{ flex: 1, width: '100%', justifyContent: "center", alignItems: "center", backgroundColor: '#3A3A3A' }}>
-          <Text>dashboard</Text>
+        <View style={{ flex: 1, width: '100%', justifyContent: 'flex-start', alignItems: "center", backgroundColor: '#3A3A3A', paddingTop:30 }}>
+          <View style={{
+            height: '30%',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            backgroundColor: '#2e2f33',
+            width: '80%',
+            borderRadius: 20,
+            shadowColor: "#000",
+            shadowOffset: {
+              width: 0,
+              height: 2,
+            },
+            shadowOpacity: 0.25,
+            shadowRadius: 3.84,
+            elevation: 5,
+          }}>
+
+          </View>
         </View>
       )
     }
@@ -41,9 +58,9 @@ class Champions extends React.Component {
     }
   }
 
-  renderFooter() {
+  renderHeader() {
     return (
-      <InfoFooter
+      <InfoHeader
         activyDashboard={() => {
           this.setState({
             dashboard: true,
@@ -90,7 +107,7 @@ class Champions extends React.Component {
     return (
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
         {this.renderContent()}
-        {this.renderFooter()}
+        {this.renderHeader()}
       </View>
     );
   }
